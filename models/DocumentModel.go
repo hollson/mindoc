@@ -312,7 +312,7 @@ func (item *Document) Processor() *Document {
 						}
 					}
 				}
-				release += "文档更新时间: " + item.ModifyTime.Local().Format("2006-01-02 15:04") + " &nbsp;&nbsp;作者："
+				release += "Document update time: " + item.ModifyTime.Local().Format("2006-01-02 15:04") + " &nbsp;&nbsp;Author："
 				if err == nil && docCreator != nil {
 					if docCreator.RealName != "" {
 						release += docCreator.RealName

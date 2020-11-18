@@ -41,32 +41,32 @@
                 <span style="font-size: 12px;font-weight: 100;"></span>
             </div>
             <div class="navbar-header pull-right manual-menu">
-                <a href="javascript:window.print();" id="printSinglePage" class="btn btn-default" style="margin-right: 10px;"><i class="fa fa-print"></i> 打印</a>
+                <a href="javascript:window.print();" id="printSinglePage" class="btn btn-default" style="margin-right: 10px;"><i class="fa fa-print"></i> Print</a>
                 {{if gt .Member.MemberId 0}}
                 {{if eq .Model.RoleId 0 1 2}}
                 <div class="dropdown pull-right">
-                    <a href="{{urlfor "DocumentController.Edit" ":key" .Model.Identify ":id" ""}}" class="btn btn-default"><i class="fa fa-edit" aria-hidden="true"></i> 编辑</a>
+                    <a href="{{urlfor "DocumentController.Edit" ":key" .Model.Identify ":id" ""}}" class="btn btn-default"><i class="fa fa-edit" aria-hidden="true"></i> Editor</a>
                     {{if eq .Model.RoleId 0 1}}
-                    <a href="{{urlfor "BookController.Users" ":key" .Model.Identify}}" class="btn btn-success"><i class="fa fa-user" aria-hidden="true"></i> 成员</a>
-                    <a href="{{urlfor "BookController.Setting" ":key" .Model.Identify}}" class="btn btn-primary"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
+                    <a href="{{urlfor "BookController.Users" ":key" .Model.Identify}}" class="btn btn-success"><i class="fa fa-user" aria-hidden="true"></i> Members</a>
+                    <a href="{{urlfor "BookController.Setting" ":key" .Model.Identify}}" class="btn btn-primary"><i class="fa fa-gear" aria-hidden="true"></i> Setting</a>
                     {{end}}
                 </div>
                 {{end}}
                 {{end}}
                 <div class="dropdown pull-right" style="margin-right: 10px;">
-                    <a href="{{urlfor "HomeController.Index"}}" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i> 首页</a>
+                    <a href="{{urlfor "HomeController.Index"}}" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
                 </div>
                 <div class="dropdown pull-right" style="margin-right: 10px;">
                 {{if eq .Model.PrivatelyOwned 0}}
                 {{if .Model.IsEnableShare}}
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#shareProject"><i class="fa fa-share-square" aria-hidden="true"></i> 分享</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#shareProject"><i class="fa fa-share-square" aria-hidden="true"></i> Share</button>
                 {{end}}
                 {{end}}
                 </div>
                 {{if .Model.IsDownload}}
                 <div class="dropdown pull-right" style="margin-right: 10px;">
                     <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-cloud-download" aria-hidden="true"></i> 下载 <span class="caret"></span>
+                        <i class="fa fa-cloud-download" aria-hidden="true"></i> Download <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="margin-top: -5px;">
                         <li><a href="{{urlfor "DocumentController.Export" ":key" .Model.Identify "output" "pdf"}}" target="_blank">PDF</a> </li>
@@ -86,13 +86,13 @@
         <div class="manual-left">
             <div class="manual-tab">
                 <div class="tab-navg">
-                    <span data-mode="view" class="navg-item active"><i class="fa fa-align-justify"></i><b class="text">目录</b></span>
-                    <span data-mode="search" class="navg-item"><i class="fa fa-search"></i><b class="text">搜索</b></span>
+                    <span data-mode="view" class="navg-item active"><i class="fa fa-align-justify"></i><b class="text">Menu</b></span>
+                    <span data-mode="search" class="navg-item"><i class="fa fa-search"></i><b class="text">Search</b></span>
                 </div>
                 <div class="tab-util">
                     <span class="manual-fullscreen-switch">
-                        <b class="open fa fa-angle-right" title="展开"></b>
-                        <b class="close fa fa-angle-left" title="关闭"></b>
+                        <b class="open fa fa-angle-right" title="unfold"></b>
+                        <b class="close fa fa-angle-left" title="hide"></b>
                     </span>
                 </div>
                 <div class="tab-wrap">
@@ -107,7 +107,7 @@
                             <div class="search-form">
                                 <form id="searchForm" action="{{urlfor "DocumentController.Search" ":key" .Model.Identify}}" method="post">
                                     <div class="form-group">
-                                        <input type="search" placeholder="请输入搜索关键字" class="form-control" name="keyword">
+                                        <input type="search" placeholder="Please enter the search keyword" class="form-control" name="keyword">
                                         <button type="submit" class="btn btn-default btn-search" id="btnSearch">
                                             <i class="fa fa-search"></i>
                                         </button>
@@ -117,7 +117,7 @@
                             <div class="search-result">
                                 <div class="search-empty">
                                     <i class="fa fa-search-plus" aria-hidden="true"></i>
-                                    <b class="text">暂无相关搜索结果！</b>
+                                    <b class="text">No relevant search results！</b>
                                 </div>
                                 <ul class="search-list" id="searchList">
                                 </ul>
@@ -128,7 +128,7 @@
             </div>
             <div class="m-copyright">
                 <p>
-                    本文档使用 <a href="https://www.iminho.me" target="_blank">MinDoc</a> 发布
+                Powered by <a href="https://www.iminho.me" target="_blank">MinDoc</a>
                 </p>
             </div>
         </div>
@@ -217,7 +217,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">项目分享</h4>
+                <h4 class="modal-title" id="myModalLabel"> Project Share</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-2 control-label">项目地址</label>
+                    <label for="password" class="col-sm-2 control-label">Share link</label>
                     <div class="col-sm-10">
                         <input type="text" value="{{urlfor "DocumentController.Index" ":key" .Model.Identify}}" class="form-control" onmouseover="this.select()" id="projectUrl" title="项目地址">
                     </div>
@@ -234,7 +234,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -246,16 +246,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">项目分享</h4>
+                <h4 class="modal-title" id="myModalLabel">Project Share</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12 text-center" style="padding-bottom: 15px;">
-                        <img src="{{urlfor "DocumentController.QrCode" ":key" .Model.Identify}}" alt="扫一扫手机阅读" />
+                        <img src="{{urlfor "DocumentController.QrCode" ":key" .Model.Identify}}" alt="scan" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-2 control-label">项目地址</label>
+                    <label for="password" class="col-sm-3 control-label">Share link</label>
                     <div class="col-sm-10">
                         <input type="text" value="{{urlfor "DocumentController.Index" ":key" .Model.Identify}}" class="form-control" onmouseover="this.select()" id="projectUrl" title="项目地址">
                     </div>
@@ -263,7 +263,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
